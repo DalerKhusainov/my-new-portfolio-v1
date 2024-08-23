@@ -78,11 +78,11 @@ const aboutData = [
       {
         title:
           "The Complete JavaScript Course - Udemy Certificate of Completion",
-        stage: "2023",
+        stage: "2021",
       },
       {
         title: "Advanced CSS and Sass - Udemy Certificate of Completion",
-        stage: "2023",
+        stage: "2021",
       },
     ],
   },
@@ -199,8 +199,8 @@ const About = () => {
               >
                 {/* title */}
                 <div className="mb-2 font-light md:mb-0">{item.title}</div>
-                <div className="hidden md:flex">-</div>
-                <div>{item.stage}</div>
+                <div className="hidden text-white md:flex">-</div>
+                <div className="text-white">{item.stage}</div>
                 <div className="flex gap-x-4">
                   {/* icons */}
                   {item.icons?.map((icon) => (
