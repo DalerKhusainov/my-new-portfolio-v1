@@ -1,16 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
 // icons
-import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaReact,
-  FaFigma,
-  FaSass,
-  FaDotCircle,
-} from "react-icons/fa";
-// import { FaWebflow } from "react-icons/fa6";
+import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiFramer,
@@ -181,10 +172,11 @@ const About = () => {
             {aboutData.map((item, itemIndex) => (
               <div
                 key={itemIndex}
-                className={`${
-                  index === itemIndex &&
-                  "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
-                } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                className={`cursor-pointer capitalize xl:text-lg relative after:h-[2px] after:absolute after:-bottom-1 after:left-0 ${
+                  index === itemIndex
+                    ? "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
+                    : "after:w-8 after:bg-white"
+                }`}
                 onClick={() => setIndex(itemIndex)}
               >
                 {item.title}
