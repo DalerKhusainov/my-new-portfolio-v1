@@ -17,7 +17,7 @@ const Services = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="h2 xl:mt-8"
+              className="text-center h2 xl:mt-8 md:text-start"
             >
               Мои Услуги <span className="text-accent">.</span>
             </motion.h2>
@@ -26,7 +26,7 @@ const Services = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="mb-4 max-w-[400px] mx-auto lg:mx-0"
+              className="mb-4 max-w-[400px] mx-auto md:text-start text-center lg:mx-0"
             >
               Нужен сайт, который отражает ваш бренд и привлекает аудиторию? Я
               создаю современные интерфейсы с отличной функциональностью.
