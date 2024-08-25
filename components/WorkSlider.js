@@ -55,15 +55,16 @@ const workSlides = {
         },
         {
           title: "title",
-          path: "/projects/thumb1.jpg",
-          live: "",
-          gitHub: "",
+          path: "/projects/thumb6.jpg",
+          live: "https://get-max-point-game.vercel.app/",
+          gitHub: "https://github.com/DalerKhusainov/who-get-max-points-game",
         },
         {
           title: "title",
-          path: "/projects/thumb2.jpg",
-          live: "",
-          gitHub: "",
+          path: "/projects/thumb7.jpg",
+          live: "https://nikewebsite-nine.vercel.app/",
+          gitHub:
+            "https://github.com/DalerKhusainov/nike-website-tailwind-javascript-mastery",
         },
         {
           title: "title",
@@ -104,7 +105,7 @@ const WorkSlider = () => {
                     <div className="absolute bottom-0 transition-all duration-300 translate-y-full group-hover:-translate-y-10 group-hover:xl:-translate-y-20">
                       <div className="flex items-center gap-x-2 text-[13px] tracking-[0.2em]">
                         {/* title part 1 */}
-                        <div className="p-2 delay-100 rounded-full bg-primary/30">
+                        <div className="p-2 text-white delay-100 rounded-full hover:text-accent bg-primary/30 hover:bg-primary">
                           <a
                             href={image.live}
                             target="_blank"
@@ -114,7 +115,7 @@ const WorkSlider = () => {
                           </a>
                         </div>
                         {/* title part 2 */}
-                        <div className="translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150 p-2 rounded-full bg-primary/30">
+                        <div className="translate-y-[500%] text-white hover:text-accent group-hover:translate-y-0 transition-all duration-300 delay-150 p-2 rounded-full bg-primary/30 hover:bg-primary">
                           <a
                             href={image.gitHub}
                             target="_blank"

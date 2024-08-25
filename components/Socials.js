@@ -1,34 +1,24 @@
-import Link from "next/link";
-import {
-  RiYoutubeLine,
-  RiInstagramLine,
-  RiFacebookLine,
-  RiDribbbleLine,
-  RiBehanceLine,
-  RiPinterestLine,
-} from "react-icons/ri";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Socials = () => {
   return (
     <div className="flex items-center text-lg gap-x-5">
-      <Link href={""} className="transition-all duration-300 hover:text-accent">
-        <RiYoutubeLine />
-      </Link>
-      <Link href={""} className="transition-all duration-300 hover:text-accent">
-        <RiInstagramLine />
-      </Link>
-      <Link href={""} className="transition-all duration-300 hover:text-accent">
-        <RiFacebookLine />
-      </Link>
-      <Link href={""} className="transition-all duration-300 hover:text-accent">
-        <RiDribbbleLine />
-      </Link>
-      <Link href={""} className="transition-all duration-300 hover:text-accent">
-        <RiBehanceLine />
-      </Link>
-      <Link href={""} className="transition-all duration-300 hover:text-accent">
-        <RiPinterestLine />
-      </Link>
+      <a
+        href="https://github.com/DalerKhusainov"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition-all duration-300 hover:text-accent"
+      >
+        <FaGithub />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/daler-khusainov-947a6a243/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition-all duration-300 hover:text-accent"
+      >
+        <FaLinkedin />
+      </a>
     </div>
   );
 };
