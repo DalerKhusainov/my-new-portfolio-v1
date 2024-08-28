@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Sora } from "@next/font/google";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
@@ -14,6 +15,10 @@ const Layout = ({ children }) => {
     <div
       className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}
     >
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <title>Daler Khusainov | Developer</title>
+      </Head>
       <TopLeftImg />
       <Nav />
       <Header />
