@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { useState } from "react";
+import { useState, useContext } from "react";
 // icons
 import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma } from "react-icons/fa";
 import {
@@ -17,14 +17,15 @@ import Circles from "../../components/Circles";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 import CountUp from "react-countup";
+import { LangContext } from "../../context/LangContext";
 
 //  data
 const aboutData = [
   {
-    title: "Навыки",
+    title: "Skills",
     info: [
       {
-        title: "Веб-разработка",
+        title: "Web Development",
         icons: [
           <FaHtml5 />,
           <FaCss3 />,
@@ -39,13 +40,13 @@ const aboutData = [
         ],
       },
       {
-        title: "UI/UX Дизайн",
+        title: "UI/UX Design",
         icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
       },
     ],
   },
   {
-    title: "Сертификаты",
+    title: "Certificates",
     info: [
       {
         title: "TailwindCSS Advanced Course - Udemy Certificate of Completion",
@@ -85,6 +86,10 @@ const About = () => {
   const startCarrier = 2021;
   const yearsOfExperience = now - startCarrier;
 
+  const langContext = useContext(LangContext);
+  if (!langContext) return;
+  const { langValue } = langContext;
+
   return (
     <div className="h-full py-32 text-center bg-primary/30 xl:text-left">
       <Circles />
@@ -107,19 +112,25 @@ const About = () => {
             exit="hidden"
             className="mt-10 h2 xl:mt-0"
           >
-            Захватывающие <span className="text-accent">истории</span> рождают
-            великолепные дизайны.
+            {langValue === "eng" ? "Captivating" : "Захватывающие"}{" "}
+            <span className="text-accent">
+              {langValue === "eng" ? "stories" : "истории"}
+            </span>{" "}
+            {langValue === "eng"
+              ? "birth magnificent designs"
+              : "рождают великолепные дизайны."}
           </motion.h2>
           <motion.p
             variants={fadeIn("right", 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
+            className="max-w-[520px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0 text-pretty"
           >
-            В {startCarrier} я начал работать в качестве веб-разработчика. С тех
-            пор я жил на стыке творчества и технологий, движимый страстью и
-            инновациями.
+            {langValue === "eng" ? "In" : "В"} {startCarrier}{" "}
+            {langValue === "eng"
+              ? ", I started working as a web developer. Since then, I have lived at the intersection of creativity and technology, driven by passion and innovation."
+              : "я начал работать в качестве веб-разработчика. С тех пор я жил на стыке творчества и технологий, движимый страстью и инновациями."}
           </motion.p>
           {/* counters */}
           <motion.div
@@ -136,7 +147,7 @@ const About = () => {
                   <CountUp start={0} end={yearsOfExperience} duration={8} /> +
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Опыт Работы
+                  {langValue === "eng" ? "Years of experience" : "Опыт Работы"}
                 </div>
               </div>
               {/* clients */}
@@ -145,7 +156,9 @@ const About = () => {
                   <CountUp start={0} end={15} duration={8} /> +
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Довольные Клиенты
+                  {langValue === "eng"
+                    ? "Satisfied clients"
+                    : "Довольные Клиенты"}
                 </div>
               </div>
               {/* projects */}
@@ -154,7 +167,9 @@ const About = () => {
                   <CountUp start={0} end={28} duration={8} /> +
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Завершенные Проекты
+                  {langValue === "eng"
+                    ? "Finished projects"
+                    : "Завершенные Проекты"}
                 </div>
               </div>
             </div>

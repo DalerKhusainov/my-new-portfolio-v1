@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import ParticlesContainer from "../components/ParticlesContainer";
 import ProjectsBtn from "../components/ProjectsBtn";
 import Avatar from "../components/Avatar";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import { LangContext } from "../context/LangContext";
 
 const Home = () => {
+  const langContext = useContext(LangContext);
+  if (!langContext) return;
+  const { langValue } = langContext;
+
   return (
     <div className="h-full bg-primary/60">
       {/* text */}
@@ -18,8 +24,12 @@ const Home = () => {
             exit="hidden"
             className="h1"
           >
-            Воплощение Идей в<br />{" "}
-            <span className="text-accent">Цифровую Реальность</span>
+            {langValue === "eng" ? "Transforming Ideas" : "Воплощение Идей"}{" "}
+            <br />
+            {langValue === "eng" ? "into" : "в"}{" "}
+            <span className="text-accent">
+              {langValue === "eng" ? "Digital Reality" : "Цифровую Реальность"}
+            </span>
           </motion.h1>
           {/* subtitle */}
           <motion.p
@@ -29,7 +39,9 @@ const Home = () => {
             exit="hidden"
             className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
           >
-            Разработка современных веб-решений с учетом ваших потребностей
+            {langValue === "eng"
+              ? "Development of modern web solutions tailored to your needs."
+              : "Разработка современных веб-решений с учетом ваших потребностей."}
           </motion.p>
           {/* btn */}
           <div className="relative flex justify-center xl:hidden">

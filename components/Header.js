@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Socials from "../components/Socials";
+import LangToggler from "./LangToggler";
 
 const Header = () => {
   return (
@@ -10,7 +11,10 @@ const Header = () => {
           <Link href="/">
             <Image src="/logo.svg" width={280} height={68} alt="" priority />
           </Link>
-          <Socials />
+          <div className="flex items-center gap-8">
+            <LangToggler />
+            <Socials />
+          </div>
         </div>
       </div>
     </header>

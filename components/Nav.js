@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 // icons
@@ -9,6 +10,7 @@ import {
   HiChatBubbleBottomCenterText,
   HiEnvelope,
 } from "react-icons/hi2";
+import { LangContext } from "../context/LangContext";
 
 // nav data
 export const navData = [
@@ -31,6 +33,12 @@ export const navData = [
 const Nav = () => {
   const router = useRouter();
   const pathname = router.pathname;
+
+  const langContext = useContext(LangContext);
+  if (!langContext) return;
+  const { langValue } = langContext;
+  // console.log(langValue);
+
   return (
     <nav className="fixed bottom-0 flex flex-col items-center xl:justify-center gap-y-4 h-max mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen">
       <div className="flex items-center justify-between w-full px-4 py-8 text-3xl xl:flex-col xl:justify-center gap-y-10 md:px-40 xl:px-0 h-[80px] xl:h-max bg-white/10 backdrop-blur-sm xl:text-xl xl:rounded-full">
