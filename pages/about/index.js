@@ -16,11 +16,12 @@ import Avatar from "../../components/Avatar";
 import Circles from "../../components/Circles";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
+import { getLangData } from "../../utils/helpers";
 import CountUp from "react-countup";
 import { LangContext } from "../../context/LangContext";
 
-//  data
-const aboutData = [
+//  data in english
+const aboutDataEng = [
   {
     title: "Skills",
     info: [
@@ -80,6 +81,67 @@ const aboutData = [
   },
 ];
 
+//  data in russian
+const aboutDataRus = [
+  {
+    title: "Навыки",
+    info: [
+      {
+        title: "Веб Разработка",
+        icons: [
+          <FaHtml5 />,
+          <FaCss3 />,
+          <FaJs />,
+          <FaReact />,
+          <SiNextdotjs />,
+          <SiFramer />,
+          <SiWebflow />,
+          <SiTypescript />,
+          <SiTailwindcss />,
+          <SiSass />,
+        ],
+      },
+      {
+        title: "UI/UX Дезайнер",
+        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+      },
+    ],
+  },
+  {
+    title: "Сертификаты",
+    info: [
+      {
+        title: "TailwindCSS Advanced Course - Udemy Certificate of Completion",
+        stage: "2024",
+      },
+      {
+        title:
+          "Figma UI/UX Design Essential and Advanced Courses - Udemy Certificate of Completion",
+        stage: "2024",
+      },
+      {
+        title:
+          "The Ultimate ReactJS, Redux and NextJS Course - Udemy Certificate of Completion",
+        stage: "2024",
+      },
+      {
+        title:
+          "ReactJS, React Router & TypeScript - ProSkills Ilmhona Bootcamp",
+        stage: "2023",
+      },
+      {
+        title:
+          "The Complete JavaScript Course - Udemy Certificate of Completion",
+        stage: "2021",
+      },
+      {
+        title: "Advanced CSS and Sass - Udemy Certificate of Completion",
+        stage: "2021",
+      },
+    ],
+  },
+];
+
 const About = () => {
   const [index, setIndex] = useState(0);
   const now = new Date().getFullYear();
@@ -89,6 +151,8 @@ const About = () => {
   const langContext = useContext(LangContext);
   if (!langContext) return;
   const { langValue } = langContext;
+
+  const aboutData = getLangData(langValue, aboutDataEng, aboutDataRus);
 
   return (
     <div className="h-full py-32 text-center bg-primary/30 xl:text-left">

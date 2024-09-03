@@ -3,7 +3,6 @@ import {
   RxCrop,
   RxPencil2,
   RxDesktop,
-  RxReader,
   RxRocket,
   RxArrowTopRight,
 } from "react-icons/rx";
@@ -16,9 +15,38 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // Swiper required modules
 import { FreeMode, Pagination } from "swiper";
+import { getLangData } from "../utils/helpers";
 
-// data
-const serviceData = [
+// data in english
+const serviceDataEng = [
+  {
+    icon: <RxCrop />,
+    title: "Branding",
+    description:
+      "Stand out with distinctive branding that aligns with your business goals.",
+  },
+  {
+    icon: <RxPencil2 />,
+    title: "Design",
+    description:
+      "My design services create functional and attractive solutions for websites.",
+  },
+  {
+    icon: <RxDesktop />,
+    title: "Development",
+    description:
+      "I offer web development from simple pages to complex applications for your needs.",
+  },
+  {
+    icon: <RxRocket />,
+    title: "SEO",
+    description:
+      "I provide SEO services to improve the position of your site, including optimization.",
+  },
+];
+
+// data in russian
+const serviceDataRus = [
   {
     icon: <RxCrop />,
     title: "Брендирование",
@@ -45,7 +73,9 @@ const serviceData = [
   },
 ];
 
-const ServiceSlider = () => {
+const ServiceSlider = ({ langValue }) => {
+  const serviceData = getLangData(langValue, serviceDataEng, serviceDataRus);
+
   return (
     <Swiper
       breakpoints={{
